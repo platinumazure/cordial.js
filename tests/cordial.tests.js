@@ -32,7 +32,7 @@ test('Cordial.pleaseWait() throws TypeError if callback is not a function', 1, f
     // arrange: nothing to arrange
 
     // act/assert
-    throws(function () {
+    raises(function () {
         Cordial.pleaseWait("key", "not a function");
     }, TypeError, "TypeError was thrown");
 });
@@ -41,7 +41,7 @@ test('Cordial.mayI() throws TypeError if callback is not a function', 1, functio
     // arrange: nothing to arrange
 
     // act/assert
-    throws(function () {
+    raises(function () {
         Cordial.mayI("not a function");
     }, TypeError, "TypeError was thrown");
 });
@@ -138,7 +138,7 @@ test('Cordial.mayI() throws Error if called twice without the first request bein
     Cordial.mayI(sandbox.stub());
 
     // act/assert
-    throws(function () {
+    raises(function () {
         Cordial.mayI(sandbox.stub());
     }, Error, "Error was thrown");
 });
