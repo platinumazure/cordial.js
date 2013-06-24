@@ -220,6 +220,8 @@
             var args = registeredRequest.args;
 
             callback.apply(context, args);
+
+            _removeRequest();
         }
     }
 
