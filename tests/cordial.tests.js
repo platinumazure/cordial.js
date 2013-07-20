@@ -351,3 +351,20 @@ test('Cordial.yesButNotNow() does nothing if Cordial.pleaseWait() was not called
     // assert
     ok(requestCallback.calledOnce, "Request has proceeded");
 });
+
+test('Multiple Cordial objects are independent of each other', 1, function () {
+    // arrange
+    var first = new Cordial();
+    var second = new Cordial();
+
+    var waiter = sandbox.stub();
+    var request = sandbox.stub();
+
+    first.pleaseWait("key", waiter);
+
+    // act
+    second.mayI(request);
+
+    // assert
+    ok(request.calledOnce, "Request was allowed from independent Cordial instance");
+});
