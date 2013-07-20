@@ -232,7 +232,7 @@
         root.Cordial = Cordial;
     }
 
-    Cordial.VERSION = '0.1.0';
+    Cordial.VERSION = '0.1.1';
 
     /**
      * Resets the global Cordial object to its previous value. Returns this
