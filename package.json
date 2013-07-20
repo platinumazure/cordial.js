@@ -1,0 +1,35 @@
+{
+  "name": "cordial.js",
+  "version": "0.1.1",
+  "description": "A more polite way of coordinating operations in JavaScript.",
+  "keywords": [
+    "library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/platinumazure/cordial.js.git"
+  },
+  "bugs": "https://github.com/platinumazure/cordial.js/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mit-license.org/"
+    }
+  ],
+  "author": {
+    "name": "Kevin Partington",
+    "web": "https://github.com/platinumazure"
+  },
+  "main": "./src/cordial.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "qunit": "~0.5.15",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-qunit": "~0.2.1",
+    "qunitjs": "~1.11.0"
+  }
+}
