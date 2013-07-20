@@ -50,7 +50,7 @@
                 'args': args
             };
             _addWaiter(key, callbackInfo);
-        };
+        }
 
         /**
          * Signal that the caller wishes to allow the current request and future
@@ -65,7 +65,7 @@
         function yes (key) {
             validateKey(key);
             _removeWaiter(key);
-        };
+        }
 
         /**
          * Signal that the caller wishes to deny the current request but allow
@@ -84,7 +84,7 @@
                 _removeRequest();
                 _removeWaiter(key);
             }
-        };
+        }
 
         /**
          * Signal that the caller wishes to deny the current request and remain
@@ -102,7 +102,7 @@
             if (key in registeredWaiters) {
                 _removeRequest();
             }
-        };
+        }
 
         /**
          * Registers a request. If no one is waiting on requests, the callback is
@@ -143,7 +143,7 @@
 
                 return false;
             }
-        };
+        }
 
         /**
          * Resets the object's state. Cancels any pending request and removes
@@ -153,7 +153,7 @@
             _removeRequest();
             registeredWaiters = {};
             numberOfWaiters = 0;
-        };
+        }
 
         /**
          * Validates a key used for waiter callbacks. This implementation
