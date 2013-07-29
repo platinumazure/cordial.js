@@ -37,6 +37,42 @@ test('Cordial.pleaseWait() throws TypeError if callback is not a function', 1, f
     }, TypeError, "TypeError was thrown");
 });
 
+test('Cordial.pleaseWait() when called twice allows updating of waiter callback information', 2, function () {
+    // arrange
+    var cordial = new Cordial();
+
+    var firstWaiter = sandbox.stub();
+    var secondWaiter = sandbox.stub();
+
+    cordial.pleaseWait("key", firstWaiter);
+    cordial.pleaseWait("key", secondWaiter);
+
+    // act
+    cordial.mayI(sandbox.stub());
+
+    // assert
+    ok(!firstWaiter.called, "Original callback was not called");
+    ok(secondWaiter.calledOnce, "New callback was called once");
+});
+
+test('Cordial.pleaseWait() when called twice does not double-count callbacks', 1, function () {
+    // arrange
+    var cordial = new Cordial();
+
+    cordial.pleaseWait("key", sandbox.stub());
+    cordial.pleaseWait("key", sandbox.stub());
+
+    var requestCallback = sandbox.stub();
+
+    cordial.yes("key");
+
+    // act
+    cordial.mayI(requestCallback);
+
+    // assert
+    ok(requestCallback.calledOnce, "Request callback was called once");
+});
+
 test('Cordial.mayI() throws TypeError if callback is not a function', 1, function () {
     // arrange
     var cordial = new Cordial();

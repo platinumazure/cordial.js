@@ -167,8 +167,10 @@
         }
 
         function _addWaiter(key, callbackInfo) {
+            if (!(key in registeredWaiters)) {
+                ++numberOfWaiters;
+            }
             registeredWaiters[key] = callbackInfo;
-            ++numberOfWaiters;
         }
 
         function _removeWaiter(key) {
