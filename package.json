@@ -1,6 +1,6 @@
 {
   "name": "cordial.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A more polite way of coordinating operations in JavaScript.",
   "keywords": [
     "library"
