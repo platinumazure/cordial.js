@@ -246,7 +246,7 @@
      */
     Cordial.noConflict = function () {
         root.Cordial = previousCordial;
-        return this;
+        return Cordial;
     };
 
 }).call(this);
