@@ -40,7 +40,7 @@
                 throw new TypeError("Callback is not a function");
             }
 
-            this.validateKey(key);
+            key = this.validateKey(key);
 
             var args = slice.call(arguments, 3);
 
@@ -63,7 +63,7 @@
          * @throws {TypeError} If the key is not a string.
          */
         function yes (key) {
-            validateKey(key);
+            key = this.validateKey(key);
             _removeWaiter(key);
         }
 
@@ -78,7 +78,7 @@
          * @throws {TypeError} If the key is not a string.
          */
         function yesButNotNow (key) {
-            validateKey(key);
+            key = this.validateKey(key);
 
             if (key in registeredWaiters) {
                 _removeRequest();
@@ -97,7 +97,7 @@
          * @throws {TypeError} If the key is not a string.
          */
         function no (key) {
-            validateKey(key);
+            key = this.validateKey(key);
 
             if (key in registeredWaiters) {
                 _removeRequest();
@@ -164,6 +164,8 @@
             if (typeof key !== 'string') {
                 throw new TypeError("Key must be a string");
             }
+
+            return key;
         }
 
         function _addWaiter(key, callbackInfo) {
